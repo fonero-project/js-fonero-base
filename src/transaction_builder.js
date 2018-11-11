@@ -1,4 +1,4 @@
-import {default as xdr} from "./generated/stellar-xdr_generated";
+import {default as xdr} from "./generated/fonero-xdr_generated";
 import {UnsignedHyper} from "js-xdr";
 import {hash} from "./hashing";
 import {Keypair} from "./keypair";
@@ -43,7 +43,7 @@ let MAX_LEDGER   = 0xFFFFFFFF; // max uint32
         destination: destinationB,
         amount: "100"
         asset: Asset.native()
-    }) // <- sends 100 XLM to destinationB
+    }) // <- sends 100 FNO to destinationB
  *   .build();
  *
  * transaction.sign(sourceKeypair);

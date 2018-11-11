@@ -1,10 +1,10 @@
-// Copyright 2015 Stellar Development Foundation and contributors. Licensed
+// Copyright 2015 Fonero Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
-%#include "xdr/Stellar-ledger.h"
+%#include "xdr/Fonero-ledger.h"
 
-namespace stellar
+namespace fonero
 {
 
 enum ErrorCode
@@ -99,7 +99,7 @@ struct DontHave
     uint256 reqHash;
 };
 
-union StellarMessage switch (MessageType type)
+union FoneroMessage switch (MessageType type)
 {
 case ERROR_MSG:
     Error error;
@@ -128,7 +128,7 @@ case GET_SCP_QUORUMSET:
 case SCP_QUORUMSET:
     SCPQuorumSet qSet;
 case SCP_MESSAGE:
-    StellarMessage envelope;
+    FoneroMessage envelope;
 case GET_SCP_STATE:
     uint32 getSCPLedgerSeq; // ledger seq requested ; if 0, requests the latest
 };
@@ -139,7 +139,7 @@ case 0:
     struct
 {
    uint64 sequence;
-   StellarMessage message;
+   FoneroMessage message;
    HmacSha256Mac mac;
     } v0;
 };

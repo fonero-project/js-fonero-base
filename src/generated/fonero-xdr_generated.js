@@ -987,7 +987,7 @@ xdr.typedef("UpgradeType", xdr.varOpaque(128));
 //       }
 //
 // ===========================================================================
-xdr.union("StellarValueExt", {
+xdr.union("FoneroValueExt", {
   switchOn: xdr.int(),
   switchName: "v",
   switches: [
@@ -999,7 +999,7 @@ xdr.union("StellarValueExt", {
 
 // === xdr source ============================================================
 //
-//   struct StellarValue
+//   struct FoneroValue
 //   {
 //       Hash txSetHash;   // transaction set to apply to previous ledger
 //       uint64 closeTime; // network close time
@@ -1021,11 +1021,11 @@ xdr.union("StellarValueExt", {
 //   };
 //
 // ===========================================================================
-xdr.struct("StellarValue", [
+xdr.struct("FoneroValue", [
   ["txSetHash", xdr.lookup("Hash")],
   ["closeTime", xdr.lookup("Uint64")],
   ["upgrades", xdr.varArray(xdr.lookup("UpgradeType"), 6)],
-  ["ext", xdr.lookup("StellarValueExt")],
+  ["ext", xdr.lookup("FoneroValueExt")],
 ]);
 
 // === xdr source ============================================================
@@ -1053,14 +1053,14 @@ xdr.union("LedgerHeaderExt", {
 //   {
 //       uint32 ledgerVersion;    // the protocol version of the ledger
 //       Hash previousLedgerHash; // hash of the previous ledger header
-//       StellarValue scpValue;   // what consensus agreed to
+//       FoneroValue scpValue;   // what consensus agreed to
 //       Hash txSetResultHash;    // the TransactionResultSet that led to this ledger
 //       Hash bucketListHash;     // hash of the ledger state
 //   
 //       uint32 ledgerSeq; // sequence number of this ledger
 //   
 //       int64 totalCoins; // total number of stroops in existence.
-//                         // 10,000,000 stroops in 1 XLM
+//                         // 10,000,000 stroops in 1 FNO
 //   
 //       int64 feePool;       // fees burned since last inflation run
 //       uint32 inflationSeq; // inflation sequence number
@@ -1091,7 +1091,7 @@ xdr.union("LedgerHeaderExt", {
 xdr.struct("LedgerHeader", [
   ["ledgerVersion", xdr.lookup("Uint32")],
   ["previousLedgerHash", xdr.lookup("Hash")],
-  ["scpValue", xdr.lookup("StellarValue")],
+  ["scpValue", xdr.lookup("FoneroValue")],
   ["txSetResultHash", xdr.lookup("Hash")],
   ["bucketListHash", xdr.lookup("Hash")],
   ["ledgerSeq", xdr.lookup("Uint32")],
@@ -1832,7 +1832,7 @@ xdr.struct("DontHave", [
 
 // === xdr source ============================================================
 //
-//   union StellarMessage switch (MessageType type)
+//   union FoneroMessage switch (MessageType type)
 //   {
 //   case ERROR_MSG:
 //       Error error;
@@ -1861,13 +1861,13 @@ xdr.struct("DontHave", [
 //   case SCP_QUORUMSET:
 //       SCPQuorumSet qSet;
 //   case SCP_MESSAGE:
-//       StellarMessage envelope;
+//       FoneroMessage envelope;
 //   case GET_SCP_STATE:
 //       uint32 getSCPLedgerSeq; // ledger seq requested ; if 0, requests the latest
 //   };
 //
 // ===========================================================================
-xdr.union("StellarMessage", {
+xdr.union("FoneroMessage", {
   switchOn: xdr.lookup("MessageType"),
   switchName: "type",
   switches: [
@@ -1896,7 +1896,7 @@ xdr.union("StellarMessage", {
     transaction: xdr.lookup("TransactionEnvelope"),
     qSetHash: xdr.lookup("Uint256"),
     qSet: xdr.lookup("ScpQuorumSet"),
-    envelope: xdr.lookup("StellarMessage"),
+    envelope: xdr.lookup("FoneroMessage"),
     getScpLedgerSeq: xdr.lookup("Uint32"),
   },
 });
@@ -1906,14 +1906,14 @@ xdr.union("StellarMessage", {
 //   struct
 //   {
 //      uint64 sequence;
-//      StellarMessage message;
+//      FoneroMessage message;
 //      HmacSha256Mac mac;
 //       }
 //
 // ===========================================================================
 xdr.struct("AuthenticatedMessageV0", [
   ["sequence", xdr.lookup("Uint64")],
-  ["message", xdr.lookup("StellarMessage")],
+  ["message", xdr.lookup("FoneroMessage")],
   ["mac", xdr.lookup("HmacSha256Mac")],
 ]);
 
@@ -1925,7 +1925,7 @@ xdr.struct("AuthenticatedMessageV0", [
 //       struct
 //   {
 //      uint64 sequence;
-//      StellarMessage message;
+//      FoneroMessage message;
 //      HmacSha256Mac mac;
 //       } v0;
 //   };

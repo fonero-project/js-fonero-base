@@ -19,7 +19,7 @@ module.exports = function(config) {
 
   config.set({
     sauceLabs: {
-      testName: 'js-stellar-base',
+      testName: 'js-fonero-base',
       recordScreenshots: false,
       recordVideo: false
     },
@@ -34,7 +34,7 @@ module.exports = function(config) {
     browsers: Object.keys(customLaunchers),
 
     files: [
-      'dist/stellar-base.min.js',
+      'dist/fonero-base.min.js',
       'test/unit/**/*.js'
     ],
 

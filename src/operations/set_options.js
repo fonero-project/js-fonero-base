@@ -1,4 +1,4 @@
-import {default as xdr} from "../generated/stellar-xdr_generated";
+import {default as xdr} from "../generated/fonero-xdr_generated";
 import {Keypair} from "../keypair";
 import {StrKey} from "../strkey";
 import isUndefined from 'lodash/isUndefined';
@@ -32,7 +32,7 @@ import isString from 'lodash/isString';
  * @param {string} [opts.homeDomain] - sets the home domain used for reverse federation lookup.
  * @param {string} [opts.source] - The source account (defaults to transaction source).
  * @returns {xdr.SetOptionsOp}
- * @see [Account flags](https://www.stellar.org/developers/guides/concepts/accounts.html#flags)
+ * @see [Account flags](https://www.fonero.org/developers/guides/concepts/accounts.html#flags)
  */
 export const setOptions = function(opts) {
   let attributes = {};

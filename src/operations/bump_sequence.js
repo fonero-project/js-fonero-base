@@ -1,4 +1,4 @@
-import {default as xdr} from "../generated/stellar-xdr_generated";
+import {default as xdr} from "../generated/fonero-xdr_generated";
 import {Hyper} from "js-xdr";
 import BigNumber from 'bignumber.js';
 import isString from 'lodash/isString';

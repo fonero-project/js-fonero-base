@@ -1,4 +1,4 @@
-import {default as xdr} from "../generated/stellar-xdr_generated";
+import {default as xdr} from "../generated/fonero-xdr_generated";
 import {Keypair} from "../keypair";
 import isUndefined from 'lodash/isUndefined';
 import {Hyper} from "js-xdr";

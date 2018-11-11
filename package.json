@@ -1,7 +1,7 @@
 {
-  "name": "stellar-base",
+  "name": "fonero-base",
   "version": "0.9.0",
-  "description": "Low level stellar support library",
+  "description": "Low level fonero support library",
   "main": "lib/index.js",
   "scripts": {
     "test": "babel-node ./node_modules/gulp/bin/gulp.js test:node",
@@ -15,20 +15,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stellar/js-stellar-base.git"
+    "url": "https://github.com/fonero-project/js-fonero-base.git"
   },
   "keywords": [
-    "stellar"
+    "fonero"
   ],
   "engines": {
     "node": ">=4"
   },
-  "author": "Scott Fleckenstein <scott@stellar.org>",
+  "author": "Scott Fleckenstein <scott@fonero.org>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/stellar/js-stellar-base/issues"
+    "url": "https://github.com/fonero-project/js-fonero-base/issues"
   },
-  "homepage": "https://github.com/stellar/js-stellar-base",
+  "homepage": "https://github.com/fonero-project/js-fonero-base",
   "devDependencies": {
     "babel": "~5.8.23",
     "babel-core": "~5.8.25",

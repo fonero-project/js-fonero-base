@@ -1,18 +1,18 @@
-// Copyright 2015 Stellar Development Foundation and contributors. Licensed
+// Copyright 2015 Fonero Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
-%#include "xdr/Stellar-SCP.h"
-%#include "xdr/Stellar-transaction.h"
+%#include "xdr/Fonero-SCP.h"
+%#include "xdr/Fonero-transaction.h"
 
-namespace stellar
+namespace fonero
 {
 
 typedef opaque UpgradeType<128>;
 
-/* StellarValue is the value used by SCP to reach consensus on a given ledger
+/* FoneroValue is the value used by SCP to reach consensus on a given ledger
 */
-struct StellarValue
+struct FoneroValue
 {
     Hash txSetHash;   // transaction set to apply to previous ledger
     uint64 closeTime; // network close time
@@ -40,14 +40,14 @@ struct LedgerHeader
 {
     uint32 ledgerVersion;    // the protocol version of the ledger
     Hash previousLedgerHash; // hash of the previous ledger header
-    StellarValue scpValue;   // what consensus agreed to
+    FoneroValue scpValue;   // what consensus agreed to
     Hash txSetResultHash;    // the TransactionResultSet that led to this ledger
     Hash bucketListHash;     // hash of the ledger state
 
     uint32 ledgerSeq; // sequence number of this ledger
 
     int64 totalCoins; // total number of stroops in existence.
-                      // 10,000,000 stroops in 1 XLM
+                      // 10,000,000 stroops in 1 FNO
 
     int64 feePool;       // fees burned since last inflation run
     uint32 inflationSeq; // inflation sequence number
@@ -75,7 +75,7 @@ struct LedgerHeader
 };
 
 /* Ledger upgrades
-note that the `upgrades` field from StellarValue is normalized such that
+note that the `upgrades` field from FoneroValue is normalized such that
 it only contains one entry per LedgerUpgradeType, and entries are sorted
 in ascending order
 */

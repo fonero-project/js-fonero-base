@@ -6,10 +6,10 @@ import {StrKey} from "./strkey";
 /**
  * Create a new Account object.
  *
- * `Account` represents a single account in Stellar network and its sequence number.
+ * `Account` represents a single account in Fonero network and its sequence number.
  * Account tracks the sequence number as it is used by {@link TransactionBuilder}.
- * See [Accounts](https://stellar.org/developers/learn/concepts/accounts.html) for more information about how
- * accounts work in Stellar.
+ * See [Accounts](https://fonero.org/developers/learn/concepts/accounts.html) for more information about how
+ * accounts work in Fonero.
  * @constructor
  * @param {string} accountId ID of the account (ex. `GB3KJPLFUYN5VL6R3GU3EGCGVCKFDSD7BEDX42HWG5BWFKB3KQGJJRMA`)
  * @param {string} sequence current sequence number of the account
@@ -27,7 +27,7 @@ export class Account {
   }
 
   /**
-   * Returns Stellar account ID, ex. `GB3KJPLFUYN5VL6R3GU3EGCGVCKFDSD7BEDX42HWG5BWFKB3KQGJJRMA`
+   * Returns Fonero account ID, ex. `GB3KJPLFUYN5VL6R3GU3EGCGVCKFDSD7BEDX42HWG5BWFKB3KQGJJRMA`
    * @returns {string}
    */
   accountId() {

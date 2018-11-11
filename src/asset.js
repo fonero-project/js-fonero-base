@@ -1,4 +1,4 @@
-import {default as xdr} from "./generated/stellar-xdr_generated";
+import {default as xdr} from "./generated/fonero-xdr_generated";
 import {Keypair} from "./keypair";
 import {StrKey} from "./strkey";
 import clone from 'lodash/clone';
@@ -6,11 +6,11 @@ import padEnd from 'lodash/padEnd';
 import trimEnd from 'lodash/trimEnd';
 
 /**
- * Asset class represents an asset, either the native asset (`XLM`)
+ * Asset class represents an asset, either the native asset (`FNO`)
  * or an asset code / issuer account ID pair.
  *
  * An asset code describes an asset code and issuer pair. In the case of the native
- * asset XLM, the issuer will be null.
+ * asset FNO, the issuer will be null.
  *
  * @constructor
  * @param {string} code - The asset code.
@@ -21,7 +21,7 @@ export class Asset {
     if (!/^[a-zA-Z0-9]{1,12}$/.test(code)) {
       throw new Error("Asset code is invalid (maximum alphanumeric, 12 characters at max)");
     }
-    if (String(code).toLowerCase() !== "xlm" && !issuer) {
+    if (String(code).toLowerCase() !== "fno" && !issuer) {
       throw new Error("Issuer cannot be null");
     }
     if (issuer && !StrKey.isValidEd25519PublicKey(issuer)) {
@@ -37,7 +37,7 @@ export class Asset {
    * @Return {Asset}
    */
   static native() {
-    return new Asset("XLM");
+    return new Asset("FNO");
   }
 
   /**
@@ -116,7 +116,7 @@ export class Asset {
    * * `credit_alphanum4`
    * * `credit_alphanum12`
    *
-   * @see [Assets concept](https://www.stellar.org/developers/learn/concepts/assets.html)
+   * @see [Assets concept](https://www.fonero.org/developers/learn/concepts/assets.html)
    * @returns {string}
    */
   getAssetType() {

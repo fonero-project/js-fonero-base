@@ -1,10 +1,10 @@
-import {default as xdr} from "../generated/stellar-xdr_generated";
+import {default as xdr} from "../generated/fonero-xdr_generated";
 import {Keypair} from "../keypair";
 import {StrKey} from "../strkey";
 
 /**
  * Returns a XDR PaymentOp. A "payment" operation send the specified amount to the
- * destination account, optionally through a path. XLM payments create the destination
+ * destination account, optionally through a path. FNO payments create the destination
  * account if it does not exist.
  * @function
  * @alias Operation.pathPayment
